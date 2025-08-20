@@ -1,110 +1,134 @@
-**✋ Hand Sign Detection – Teaching Computers to Understand Gestures**
+✋ Hand Gesture Recognition System
+---
 
-Have you ever wished your computer could understand a simple wave 👋 or peace sign ✌️?
+A real-time hand gesture recognition system powered by OpenCV, cvzone, and TensorFlow.
 
-That’s exactly what this project does — it looks at your hand signs and figures out what they mean.
+This project captures hand gestures through your webcam and classifies them into predefined categories (like A, B, C).
 
-Think of it as giving your laptop a pair of “eyes” and a little bit of “brains” to read gestures.
+🌟 Features
+---
 
- **Why this project?**
+🖐️ Real-time hand detection using cvzone.HandTrackingModule
 
-Communication is not always about words. For people using sign language or in places where typing isn’t possible, gestures are powerful. This project shows how AI + Computer Vision can bridge that gap.
+✂️ Automatic preprocessing (cropping, resizing, white background adjustment)
 
-** What it can do**
+🔍 CNN-based classification with DepthwiseConv2D
 
- Look at your hand and detect signs.
+📸 Built-in data collection for training your own custom gestures
 
-🎥 Work in real-time with your webcam.
+🧠 Customizable labels (A, B, C, etc.) – retrain easily with your own data
 
-🎨 Be trained on any gesture dataset (alphabets, numbers, or even your custom signs).
+🛠 Tech Stack
+---
+Component	Library / Tool
 
-🛠️ Be expanded into sign language interpreters, gesture-controlled games, or touchless interfaces.
+Hand Detection	cvzone.HandTrackingModule
 
-🛠️ The Ingredients
+Model Framework	TensorFlow, Keras
 
-**Think of this like a recipe :**
 
-Python – the main language.
+Image Processing	OpenCV, NumPy
+Classifier	cvzone.ClassificationModule
+IDE (Optional)	VS Code, Jupyter
 
-OpenCV – so the computer can “see.”
+📂 Folder Structure
+---
+```bash
 
-TensorFlow / PyTorch – to make the computer “learn.”
-
-Streamlit / Flask – to turn the project into something you can actually use.
-
-**📂 What’s inside the box**
-Hand-Sign-Detection/
-│── data/               # All the training/testing images go here
-│── models/             # Trained models are stored here
-│── notebooks/          # Jupyter notebooks for experiments
-│── src/                # The core logic (train, test, predict)
-│── app.py              # Run this for a live demo 🎥
-│── requirements.txt    # List of ingredients (libraries)
-│── README.md           # This guide you’re reading now
-
-**How to try it yourself**
-
-Grab the project
-
-git clone https://github.com/your-username/hand-sign-detection.git
-
-cd hand-sign-detection
-
-Install the magic potion (libraries)
-
+Hand-Gesture-Recognition/
+├── Data/
+├── Model/
+│   ├── keras_model.h5
+│   └── labels.txt
+├── dataCollection.py
+├── test.py
+├── requirements.txt
+└── README.md
+```
+🔧 Setup Instructions (Local)
+--
+Clone the repository
+```bash
+git clone https://github.com/your-username/Hand-Gesture-Recognition.git
+cd Hand-Gesture-Recognition
+```
+Create a virtual environment
+---
+```bash
+python -m venv venv
+```
+Activate the environment
+---
+Windows:
+```bash
+venv\Scripts\activate
+```
+Linux/Mac:
+```bash
+source venv/bin/activate
+```
+Install dependencies
+---
+```bash
 pip install -r requirements.txt
+```
+📸 Collect Your Own Gesture Data
+---
+Run the data collection script:
+```bash
+python dataCollection.py
+```
+Your webcam will open.
+
+Show a gesture to the camera.
+
+Press s to save a cropped + resized image into the Data/ folder.
+
+🖥️ Run the Gesture Recognition App
+---
+Once you’ve collected data and trained the model:
+```bash
+python test.py
+```
+This will:
+✅ Open webcam
+
+✅ Detect your hand
+
+✅ Predict gestures in real-time
+
+🧠 Model Details
+---
+
+Model File: Model/keras_model.h5
+
+Labels File: Model/labels.txt
+
+Example Labels
+labels = ["A", "B", "C"]
 
 
-Bring your dataset
+Add your own gestures, retrain the model, and update labels.txt.
 
-You can download the ASL Alphabet Dataset
+✅ Best Practices
+---
 
-or even click a few photos of your own hands.
+Keep large datasets & trained models in external storage (not in GitHub repo).
 
-**Organize it like this:**
+Use a .gitignore to exclude unnecessary files (.venv/, __pycache__/, *.h5, etc.).
 
+Separate training scripts if you plan to experiment with different architectures.
 
-data/train/A/...
+🚀 Future Improvements
+---
 
-data/train/B/...
+Extend to full ASL Alphabet recognition.
 
-data/test/A/...
+Deploy as a mobile app with TensorFlow Lite.
 
-data/test/B/...
+Add support for gesture-controlled applications (games, IoT, smart devices).
 
+👩‍💻 Author
+---
 
-**Teach the computer**
-
-python src/train.py
-
-
-**Test if it learned well**
-
-python src/evaluate.py
-
-
-**Play with it live 🎥**
-
-streamlit run app.py
-
-
-Open the link in your browser, show your webcam some signs, and see the magic happen!
-
-**What’s next?**
-
-This is just the beginning. Some fun next steps could be:
-
-Translating full sentences in sign language.
-
-Running on mobile devices.
-
-Using it in games or smart home controls.
-
-**🤝 Let’s Build Together**
-
-If this project excites you, don’t just star ⭐ it — try it, break it, improve it, and share your version! PRs and ideas are always welcome.
-
-**👩‍💻 Author**
-
-allupragathi@gmail.com
-
+📧allupragathi@gmail.com
